@@ -11,30 +11,19 @@
     <h1>Miles Tracker</h1>
     <div id="map" style="height: 400px;"></div>
     <div id="msg"></div>    
-    <button id="startButton">Start Tracking Your Miles</button>
-    <button id="stopButton">Stop Tracking Your Miles</button>
-    <button id="trashButton">Find Trash?</button>
 
+
+    <script>function get_location() {
+        navigator.geolocation.getCurrentPosition(showPosition)
+    }
+        </script>
     <script>
-        const startButton = document.getElementById('startButton');
-        const stopButton = document.getElementById('stopButton');
-        const trashButton = document.getElementById('trashButton');
-        
-        startButton.addEventListener('click', () => {
-            alert("Miles tracking has started!");
-        });
-        
-        stopButton.addEventListener('click', () => {
-            alert("Miles tracking has stopped.");
-        });
-        
-        trashButton.addEventListener('click', () => {
-            alert("Pinging Trash at your Location.");
-        });
-        
+            
+
         function haversine_distance(marker1, marker2) {
             // Your haversine distance calculation function
         }
+    
         
         async function initMap() {
             const position = { lat: 40.7767, lng: -73.9761 };
@@ -53,8 +42,36 @@
             // Your marker creation code for other markers
         }
     </script>
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjWYgbTuFD-qc_O6fCD2JRZ0gbh3q6HjU&callback=initMap">
+<body>
+
+    <p>Click the button to get your coordinates.</p>
+    
+    <button onclick="getLocation()">Start Tracking</button>
+
+    <button3 onclick="getLocation()">Stop Tracking</button3>
+
+    
+    <p id="demo"></p>
+    
+    <script>
+    var x = document.getElementById("demo");
+    
+    function getLocation() {
+     navigator.geolocation.getCurrentPosition(showPosition);
+      
+    }
+    
+    function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude;
+    }
     </script>
+    
+    </body>
+
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjWYgbTuFD-qc_O6fCD2JRZ0gbh3q6HjU
+&callback=initMap"> 
+        </script>
 </body>
 </html>
