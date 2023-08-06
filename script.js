@@ -38,27 +38,100 @@ let map;
 
       // Calculate and display the distance between markers
       var distance = haversine_distance(marker1, marker2);
-      document.getElementById('msg').innerHTML = "Area Covered: " + (distance.toFixed(2))*0.1 + " mi." + "Percentage Covered:" + (((distance.toFixed(2))*0.1) / 3.55).toFixed(2) + "%" ;
+      document.getElementById('msg').innerHTML = "Distance between markers: " + distance.toFixed(2) + " mi.";
     }
 
     initMap();
 
- 
 
-    const startButton = document.getElementById('startButton');
-    const stopButton = document.getElementById('stopButton');
-    const trashButton =document.getElementById('trashButton');
- 
- 
-    startButton.addEventListener('click', () => {
-      alert("Miles tracking has started!");
-    });
- 
- 
-    stopButton.addEventListener('click', () => {
-      alert("Miles tracking has stopped.");
-    });
-    trashButton.addEventListener('click', ()=> {
-        alert("Pinging Trash at your Location.");
-    });
- 
+const startButton = document.getElementById('startButton');
+const stopButton = document.getElementById('stopButton');
+const trashButton = document.getElementById('trashButton');
+
+startButton.addEventListener('click', () => {
+  alert("Miles tracking has started!");
+  InputLocation();
+});
+
+stopButton.addEventListener('click', () => {
+  alert("Miles tracking has stopped.");
+});
+
+trashButton.addEventListener('click', () => {
+  alert("Pinging Trash at your Location.");
+});
+
+function InputLocation() {
+  let myDiv = document.getElementById("GFG");
+            // creating button element
+            let button = document.createElement('BUTTON');
+            // creating text to be
+            //displayed on button
+            let text = document.createTextNode("Button");
+             
+            // appending text to button
+            button.appendChild(text);
+            // appending button to div
+            myDiv.appendChild(button);;
+}
+
+
+function NavBar() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+
+function createInputField() {
+  // Create an input element
+  var inputField = document.createElement("input");
+  inputField.type = "text";
+  inputField.placeholder = "Enter something";
+
+  // Append the input element to the container
+  var container = document.getElementById("inputFieldContainer");
+  container.appendChild(inputField);
+}
+
+
+
+function showPos(position){   
+  latt = position.coords.latitude;   
+  long = position.coords.longitude;   
+  var lattlong = new google.maps.LatLng(latt, long);   
+  var myOptions = {   
+      center: lattlong,   
+      zoom: 15,   
+      mapTypeControl: true,   
+      navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}   
+  }   
+  var maps = new google.maps.Map(document.getElementById("demo"), myOptions);   
+  var markers =   
+  new google.maps.Marker({position:lattlong, map:maps, title:"You are here!"});   
+}   
+
+
+var x= document.getElementById("location");  
+            function getlocation() {  
+                if(navigator.geolocation){  
+                    navigator.geolocation.getCurrentPosition(showPosition)  
+                  }  
+                else  
+                {  
+                     alert("Sorry! your browser is not supporting")  
+                 } }  
+               
+             function showPosition(position){  
+               var y = "Your current location is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " +    position.coords.longitude + ")";  
+                        document.getElementById("location").innerHTML = x;  
+             }  
+             function getlocation(){   
+              if(navigator.geolocation){   
+                  navigator.geolocation.getCurrentPosition(showPos, showErr);   
+              }  
+               
+          }  
