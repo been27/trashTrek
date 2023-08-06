@@ -6,3 +6,6 @@ Features
 - map creates an overall cumulative map to show users trash hotspots
 - leaderboard of those who walked the most miles and logged the most trash - incentive
 - officials can focus on cleanign up areas wiith most trash logged
+
+API
+https://developers.google.com/maps/documentation/javascript/adding-a-google-map#javascript_1
