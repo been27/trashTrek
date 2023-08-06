@@ -38,7 +38,7 @@ let map;
 
       // Calculate and display the distance between markers
       var distance = haversine_distance(marker1, marker2);
-      document.getElementById('msg').innerHTML = "Distance between markers: " + distance.toFixed(2) + " mi.";
+      document.getElementById('msg').innerHTML = "Area Covered: " + (distance.toFixed(2))*0.1 + " mi." + "Percentage Covered:" + (((distance.toFixed(2))*0.1) / 3.55).toFixed(2) + "%" ;
     }
 
     initMap();
