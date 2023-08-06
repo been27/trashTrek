@@ -1,0 +1,43 @@
+#map {
+    height: 400px; /* The height is 400 pixels */
+    width: 100%; /* The width is the width of the web page */
+}
+
+html, body{
+    padding: 0px;
+    margin: 0px;
+}
+
+#msg{
+    padding: 20px;
+    border-style: double;
+    border-radius: 15px;
+    width: 17%;
+}
+
+#h1{
+    padding: 10px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+  }
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: black;
+}
+
+
+body {
+    background-image: url(san_ramon_CSS.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+ }
+ 
