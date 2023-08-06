@@ -76,52 +76,11 @@
         <h1>Find your Current location</h1>  
         <button onclick="getlocation()">Click me</button>  
         <div id="location"></div>  
-        <script>  
-            var x= document.getElementById("location");  
-            function getlocation() {  
-                if(navigator.geolocation){  
-                    navigator.geolocation.getCurrentPosition(showPosition)  
-                  }  
-                else  
-                {  
-                     alert("Sorry! your browser is not supporting")  
-                 } }  
-               
-             function showPosition(position){  
-               var x = "Your current location is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " +    position.coords.longitude + ")";  
-                        document.getElementById("location").innerHTML = x;  
-             }  
-        </script>  
-        <h2>Find Your Location in below Map</h2>   
-        <button onclick="getlocation();"> Show Position</button>   
+        
+        <h2>Find Your Location in  Map</h2>   
+        <button onclick="getlocation()"> Show Position</button>   
         <div id="demo" style="width: 600px; height: 400px; margin-left: 200px;"></div>   
          
         <script src="https://maps.google.com/maps/api/js?sensor=false"> </script>   
-          
-        <script type="text/javascript">   
-        function getlocation(){   
-            if(navigator.geolocation){   
-                navigator.geolocation.getCurrentPosition(showPos, showErr);   
-            }  
-            else{  
-                alert("Sorry! your Browser does not support Geolocation API")  
-            }  
-        }   
-        //Showing Current Poistion on Google Map  
-        function showPos(position){   
-            latt = position.coords.latitude;   
-            long = position.coords.longitude;   
-            var lattlong = new google.maps.LatLng(latt, long);   
-            var myOptions = {   
-                center: lattlong,   
-                zoom: 15,   
-                mapTypeControl: true,   
-                navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}   
-            }   
-            var maps = new google.maps.Map(document.getElementById("demo"), myOptions);   
-            var markers =   
-            new google.maps.Marker({position:lattlong, map:maps, title:"You are here!"});   
-        }   
-        </script>
 </body>
 </html>
