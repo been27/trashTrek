@@ -9,3 +9,6 @@ Features
 
 API
 https://developers.google.com/maps/documentation/javascript/adding-a-google-map#javascript_1
+
+
+https://developers.google.com/maps/documentation/javascript/geolocation
