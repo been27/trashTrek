@@ -11,24 +11,18 @@ let map;
       var d = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2) + Math.cos(rlat1) * Math.cos(rlat2) * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
       return d;
     }
-    var my_lat = position.coords.latitude
-    var my_long = position.coords.longitude
-    function initMap() {
 
+    async function initMap() {
+      const position = { lat: 37.74061216101497, lng: -122.20093266021861 };
 
       const { Map } = await google.maps.importLibrary("maps");
       const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
       map = new Map(document.getElementById("map"), {
         zoom: 15,
-        center: my_lat, my_long,
+        center: position,
         mapId: "DEMO_MAP_ID",
       });
-      new google.maps.Marker({
-          position: my_lat, my_long,
-          map,
-          title: "You",
-      })
 
       const marker = new AdvancedMarkerElement({
         map: map,
@@ -36,15 +30,38 @@ let map;
         title: "Uluru",
       });
 
-      var place1 = { lat: position.coords.latitude, lng: position.coords.longitude};
+      var place1 = { lat: 37.74061216101497, lng: -122.20093266021861 };
       var marker1 = new google.maps.Marker({ position: place1, map: map });
 
-      var place2 = { lat: position.coords.latitude, lng: position.coords.longitude };
+      var place2 = { lat: 37.76018716828384, lng: -122.2072094701916 };
       var marker2 = new google.maps.Marker({ position: place2, map: map });
 
       // Calculate and display the distance between markers
       var distance = haversine_distance(marker1, marker2);
-      document.getElementById('msg').innerHTML = "Area Covered: " + (distance.toFixed(2))*0.1 + " mi." + "Percentage Covered:" + (((distance.toFixed(2))*0.1) / 3.55).toFixed(2) + "%" ;
+      document.getElementById('msg').innerHTML = "Distance between markers: " + distance.toFixed(2) + " mi.";
+      
+      document.getElementById('msg').innerHTML = "% Explored: " + roundedValue;
+
     }
 
     initMap();
+
+ 
+
+    const startButton = document.getElementById('startButton');
+    const stopButton = document.getElementById('stopButton');
+    const trashButton =document.getElementById('trashButton');
+ 
+ 
+    startButton.addEventListener('click', () => {
+      alert("Miles tracking has started!");
+    });
+ 
+ 
+    stopButton.addEventListener('click', () => {
+      alert("Miles tracking has stopped.");
+    });
+    trashButton.addEventListener('click', ()=> {
+        alert("Pinging Trash at your Location.");
+    });
+ 
